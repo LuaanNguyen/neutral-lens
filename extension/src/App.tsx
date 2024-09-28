@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Header from "./components/Header";
 import { getCurrentTabUrl } from "./logic/getCurrentTabURL";
+import Footer from "./components/Footer";
 
 function App() {
   const [currentUrl, setCurrentUrl] = useState<string | null>(null);
@@ -42,12 +43,10 @@ function App() {
           onChange={handleInputChange}
         />
         <button className="button" onClick={copyText}>
-          Get the link
+          Copy URL
         </button>
       </div>
-      <footer className="footer">
-        <p>© Social Bias Hackathon 2024</p>
-      </footer>
+      <Footer />
     </main>
   );
 }

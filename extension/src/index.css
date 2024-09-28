@@ -59,11 +59,3 @@ body {
   background-color: #f0f0f0;
   border-radius: 4px;
 }
-
-/* Footer styles */
-.footer {
-  margin-top: 16px;
-  text-align: center;
-  font-size: 12px;
-  color: #666;
-}
