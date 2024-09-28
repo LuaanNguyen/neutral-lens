@@ -1,0 +1,9 @@
+.idea
+.venv
+virtualenv
+*.pyc
+dist
+build
+*.egg-info
+upload_new_version.sh
+.coverage
