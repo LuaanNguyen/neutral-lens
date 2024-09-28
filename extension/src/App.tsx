@@ -42,9 +42,14 @@ function App() {
           value={inputUrl}
           onChange={handleInputChange}
         />
-        <button className="button" onClick={copyText}>
-          Copy URL
-        </button>
+        <section className="button-container">
+          <button className="button" onClick={copyText}>
+            Copy URL
+          </button>
+          <button className="button" onClick={copyText}>
+            Detect Bias
+          </button>
+        </section>
       </div>
       <Footer />
     </main>

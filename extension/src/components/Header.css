@@ -1,11 +1,22 @@
 /* Header styles */
 .header {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  gap: 10px;
   text-align: center;
   margin-bottom: 18px;
+}
+
+.setting-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .title-icon {
@@ -15,4 +26,68 @@
 .header h1 {
   font-size: 24px;
   color: #1a73e8;
+}
+
+/* Toggle Switch */
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 24px; /* Reduced from 30px */
+  height: 14px; /* Reduced from 20px */
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 10px; /* Reduced from 16px */
+  width: 10px; /* Reduced from 16px */
+  left: 2px; /* Adjusted from 4px */
+  bottom: 2px; /* Adjusted from 4px */
+  background-color: white;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+input:checked + .slider {
+  background-color: #1a73e8;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #1a73e8;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(10px); /* Adjusted from 26px */
+  -ms-transform: translateX(10px); /* Adjusted from 26px */
+  transform: translateX(10px); /* Adjusted from 26px */
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 14px; /* Adjusted from 34px */
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }
