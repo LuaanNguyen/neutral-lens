@@ -13,17 +13,6 @@ body {
   padding: 16px;
 }
 
-/* Header styles */
-.header {
-  text-align: center;
-  margin-bottom: 16px;
-}
-
-.header h1 {
-  font-size: 24px;
-  color: #1a73e8;
-}
-
 /* Main content styles */
 .content {
   background-color: #fff;

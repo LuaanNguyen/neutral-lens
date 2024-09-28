@@ -1,0 +1,18 @@
+/* Header styles */
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.title-icon {
+  color: #1a73e8;
+}
+
+.header h1 {
+  font-size: 24px;
+  color: #1a73e8;
+}
