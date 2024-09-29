@@ -4,7 +4,8 @@
   height: 20px;
   background: linear-gradient(#31a354 0 0) 0/0% no-repeat #e5f5e0;
   animation: l1 2s infinite linear;
-  margin: 20px auto 20px auto;
+  margin: 30px auto 30px auto;
+  border-radius: 20px;
 }
 @keyframes l1 {
   100% {

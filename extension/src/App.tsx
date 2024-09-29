@@ -64,6 +64,7 @@ function App() {
 
     try {
       const res = await fetch(`${BACKEND_URL}/${videoCode}`);
+
       if (!res.ok) {
         throw new Error(`HTTP error! status: ${res.status}`);
       }

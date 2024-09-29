@@ -16,7 +16,7 @@
 .logo-container {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 5px;
 }
 
 .title-icon {
@@ -24,7 +24,7 @@
 }
 
 .header h1 {
-  font-size: 24px;
+  font-size: 20px;
   color: #1a73e8;
 }
 

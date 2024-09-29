@@ -1,5 +1,6 @@
 from youtube_transcript_api import YouTubeTranscriptApi
 from flask import Flask, jsonify
+from flask_cors import CORS
 import requests
 import os
 from dotenv import load_dotenv
@@ -7,6 +8,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = Flask(__name__)
+CORS(app)  
 
 @app.route("/get-transcript-responses/<yt_code>", methods=["GET"])
 def get_transcript_responses(yt_code):
