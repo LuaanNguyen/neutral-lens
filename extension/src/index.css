@@ -7,7 +7,7 @@
 
 body {
   font-family: "Roboto", Arial, sans-serif;
-  background-color: #f5f5f5;
+  background-color: #e1f7f5;
   color: #333;
   width: 400px;
   padding: 16px;
@@ -15,10 +15,10 @@ body {
 
 /* Main content styles */
 .content {
-  background-color: #fff;
-  border-radius: 8px;
+  border-radius: 20px;
   padding: 16px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff5cd;
 }
 
 /* Input styles */
@@ -27,7 +27,7 @@ body {
   padding: 8px;
   margin-bottom: 12px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 10px;
   font-size: 14px;
 }
 
@@ -52,7 +52,7 @@ body {
 
 .button {
   display: inline-block;
-  background-color: #1a73e8;
+  background-color: #e78f81;
   color: #fff;
   padding: 14px 20px;
   border: none;
@@ -60,6 +60,7 @@ body {
   cursor: pointer;
   font-size: 14px;
   transition: background-color 0.3s ease;
+  font-weight: bold;
 }
 
 .button-detect {
@@ -74,16 +75,17 @@ body {
   transition: background-color 0.2s ease;
   border: solid;
   border-color: #ccc;
+  font-weight: bold;
 }
 
 .button:hover {
-  background-color: #155db1;
+  background-color: #ffcfb3;
 }
 
 .button-detect:hover {
-  background-color: #1a73e8;
+  background-color: #e78f81;
   color: #ffffff;
-  border-color: #1a73e8;
+  border-color: #e78f81;
 }
 
 .error {

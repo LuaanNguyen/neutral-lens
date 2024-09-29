@@ -20,7 +20,7 @@ export default function Header({
     <>
       <header className="header">
         <div className="logo-container">
-          <ScanSearch className="title-icon" />
+          <ScanSearch className="title-icon" size={32} color="#E78F81" />
           <h1 className="title">Neutral Lens</h1>
         </div>
 
@@ -34,10 +34,10 @@ export default function Header({
             />
             <span className="slider round"></span>
           </label>
-          <Settings size={20} color="#7d7d7d" style={{ cursor: "pointer" }} />
+          <Settings size={20} color="#5BD1D7" style={{ cursor: "pointer" }} />
           <SquareX
             size={20}
-            color="#7d7d7d"
+            color="#5BD1D7"
             style={{ cursor: "pointer" }}
             onClick={() => window.close()}
           />

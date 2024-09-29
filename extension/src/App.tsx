@@ -86,17 +86,33 @@ function App() {
         <Header settingOpen={settingOpen} setSettingOpen={setSettingOpen} />
         {info && (
           <div>
+            <hr
+              style={{
+                opacity: "30%",
+                height: "1px",
+                backgroundColor: "black",
+                borderRadius: "20px",
+              }}
+            />
             <BiasGraph data={info} />
             {/* <pre>{JSON.stringify(info, null, 2)}</pre> */}
           </div>
         )}
         {isLoading ? <Loader /> : <></>}
         {error && <p className="error">{error}</p>}
-        <p style={{ marginTop: "20px" }}>Current URL:</p>
+        <h5
+          style={{
+            marginTop: "20px",
+            opacity: "80%",
+            fontWeight: "bold",
+          }}
+        >
+          Current URL:
+        </h5>
         <input
           type="text"
           className="input"
-          placeholder="YouTube Link"
+          placeholder="Youtube URL here"
           value={inputUrl}
           onChange={handleInputChange}
         />

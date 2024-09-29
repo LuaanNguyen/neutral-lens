@@ -6,5 +6,10 @@
   "action": {
     "default_popup": "index.html"
   },
-  "permissions": ["tabs"]
+  "permissions": ["tabs"],
+  "icons": {
+    "16": "/scan-search.svg",
+    "48": "/scan-search.svg",
+    "128": "/scan-search.svg"
+  }
 }

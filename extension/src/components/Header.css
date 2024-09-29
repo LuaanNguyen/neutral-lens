@@ -16,16 +16,12 @@
 .logo-container {
   display: flex;
   align-items: center;
-  gap: 5px;
-}
-
-.title-icon {
-  color: #1a73e8;
+  gap: 7px;
 }
 
 .header h1 {
-  font-size: 20px;
-  color: #1a73e8;
+  font-size: 24px;
+  opacity: 0.9;
 }
 
 /* Toggle Switch */
@@ -52,7 +48,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #7d7d7d;
+  background-color: #5bd1d7;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
@@ -70,11 +66,11 @@
 }
 
 input:checked + .slider {
-  background-color: #1a73e8;
+  background-color: #8fd14f;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #1a73e8;
+  box-shadow: 0 0 1px #5bd1d7;
 }
 
 input:checked + .slider:before {

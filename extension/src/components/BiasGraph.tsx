@@ -153,8 +153,16 @@ const BiasGraph: React.FC<Props> = ({ data }) => {
   return (
     <div>
       <Line options={options} data={chartData} />
+
       <div style={{ marginTop: "20px", marginBottom: "20px" }}>
-        <h5>Bias Summary:</h5>
+        <h5
+          style={{
+            opacity: "80%",
+            fontWeight: "bold",
+          }}
+        >
+          Summary:
+        </h5>
         <div className="bias-summary-container">
           <div className="individual-bias">
             <p className="number">{totalStereotype}</p>
