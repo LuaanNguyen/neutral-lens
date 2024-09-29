@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 function App() {
   const [currentUrl, setCurrentUrl] = useState<string | null>(null);
   const [inputUrl, setInputUrl] = useState<string>("");
+  const [settingOpen, setSettingOpen] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchUrl = async () => {
@@ -33,7 +34,7 @@ function App() {
   return (
     <main className="main">
       <div className="content">
-        <Header />
+        <Header settingOpen={settingOpen} setSettingOpen={setSettingOpen} />
         {currentUrl && <p>Current URL: {currentUrl}</p>}
         <input
           type="text"
