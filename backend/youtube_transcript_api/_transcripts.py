@@ -351,10 +351,9 @@ class _TranscriptParser(object):
     def parse(self, plain_data):
         return [
             {
-                # 'text':
-                re.sub(self._html_regex, '', unescape(xml_element.text)),
-                # 'start': float(xml_element.attrib['start']),
-                # 'duration': float(xml_element.attrib.get('dur', '0.0')),
+                'text': re.sub(self._html_regex, '', unescape(xml_element.text)),
+                'start': float(xml_element.attrib['start']),
+                'duration': float(xml_element.attrib.get('dur', '0.0')),
             }
             for xml_element in ElementTree.fromstring(plain_data)
             if xml_element.text is not None
