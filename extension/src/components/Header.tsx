@@ -1,6 +1,6 @@
 import React from "react";
 import "./Header.css";
-import { ScanSearch, Settings } from "lucide-react";
+import { ScanSearch, Settings, SquareX } from "lucide-react";
 
 export default function Header({
   settingOpen,
@@ -35,6 +35,12 @@ export default function Header({
             <span className="slider round"></span>
           </label>
           <Settings size={20} color="#7d7d7d" style={{ cursor: "pointer" }} />
+          <SquareX
+            size={20}
+            color="#7d7d7d"
+            style={{ cursor: "pointer" }}
+            onClick={() => window.close()}
+          />
         </div>
       </header>
       {settingOpen ? <></> : <></>}

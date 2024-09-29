@@ -102,7 +102,11 @@ function App() {
           <button className="button" onClick={copyText}>
             Copy URL
           </button>
-          <button className="button" onClick={submitVideo} disabled={isLoading}>
+          <button
+            className="button-detect"
+            onClick={submitVideo}
+            disabled={isLoading}
+          >
             {isLoading ? "Loading..." : "Detect Bias"}
           </button>
         </section>

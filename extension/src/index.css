@@ -21,23 +21,6 @@ body {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Button styles */
-.button {
-  display: inline-block;
-  background-color: #1a73e8;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: background-color 0.3s ease;
-}
-
-.button:hover {
-  background-color: #155db1;
-}
-
 /* Input styles */
 .input {
   width: 100%;
@@ -63,7 +46,44 @@ body {
 /* BUTTON CONTAINER */
 .button-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 10px;
+}
+
+.button {
+  display: inline-block;
+  background-color: #1a73e8;
+  color: #fff;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.button-detect {
+  display: inline-block;
+  background-color: #ffffff;
+  color: black;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+  border: solid;
+  border-color: #ccc;
+}
+
+.button:hover {
+  background-color: #155db1;
+}
+
+.button-detect:hover {
+  background-color: #1a73e8;
+  color: #ffffff;
+  border-color: #1a73e8;
 }
 
 .error {
