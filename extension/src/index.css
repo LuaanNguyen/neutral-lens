@@ -26,9 +26,9 @@ body {
   display: inline-block;
   background-color: #1a73e8;
   color: #fff;
-  padding: 8px 16px;
+  padding: 10px 20px;
   border: none;
-  border-radius: 4px;
+  border-radius: 20px;
   cursor: pointer;
   font-size: 14px;
   transition: background-color 0.3s ease;

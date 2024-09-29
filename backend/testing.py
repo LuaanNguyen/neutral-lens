@@ -34,8 +34,8 @@ def get_transcript_responses():
             response_list.append(response_data_with_meta)
         except requests.RequestException as e:
             print(f"Error making API request: {e}")
-    return jsonify(response_list)
-\
+    return jsonify(response_list), 200
+
 @app.route("/health-check")
 def hello_world():
     return "<p>Connected</p>"

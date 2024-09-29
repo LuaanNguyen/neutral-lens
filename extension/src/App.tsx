@@ -2,17 +2,30 @@ import React, { useState, useEffect } from "react";
 import Header from "./components/Header";
 import { getCurrentTabUrl } from "./logic/getCurrentTabURL";
 import Footer from "./components/Footer";
+import Loader from "./components/Loader";
+
+const BACKEND_URL = "http://127.0.0.1:5000/get-transcript-responses";
+
+type ApiResponse = Array<{
+  duration: number;
+  response: Array<{
+    labels: string[];
+    token: string;
+  }>;
+  start: number;
+}>;
 
 function App() {
-  const [currentUrl, setCurrentUrl] = useState<string | null>(null);
   const [inputUrl, setInputUrl] = useState<string>("");
   const [settingOpen, setSettingOpen] = useState<boolean>(false);
+  const [info, setInfo] = useState<ApiResponse | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchUrl = async () => {
       const url = await getCurrentTabUrl();
       if (url) {
-        setCurrentUrl(url);
         setInputUrl(url);
         console.log("Current tab URL:", url);
       } else {
@@ -31,15 +44,55 @@ function App() {
     navigator.clipboard.writeText(inputUrl);
   };
 
+  const isValidYoutubeUrl = (url: string) => {
+    const youtubeRegex =
+      /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/.+$/;
+    return youtubeRegex.test(url);
+  };
+
+  const submitVideo = async () => {
+    if (!isValidYoutubeUrl(inputUrl)) {
+      setError("Please enter a valid YouTube URL");
+      return;
+    }
+
+    setIsLoading(true);
+    setError(null);
+
+    try {
+      const res = await fetch(
+        `${BACKEND_URL}?url=${encodeURIComponent(inputUrl)}`
+      );
+      if (!res.ok) {
+        throw new Error(`HTTP error! status: ${res.status}`);
+      }
+      const data: ApiResponse = await res.json();
+      setInfo(data);
+    } catch (err) {
+      console.error("Error fetching data:", err);
+      setError("Failed to fetch data. Please try again.");
+      setInfo(null);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <main className="main">
       <div className="content">
         <Header settingOpen={settingOpen} setSettingOpen={setSettingOpen} />
-        {currentUrl && <p>Current URL: {currentUrl}</p>}
+        {info && (
+          <div>
+            <h2>API Response:</h2>
+            <pre>{JSON.stringify(info, null, 2)}</pre>
+          </div>
+        )}
+        {isLoading ?? <Loader />}
+        <p>Current URL:</p>
         <input
           type="text"
           className="input"
-          placeholder="Link"
+          placeholder="YouTube Link"
           value={inputUrl}
           onChange={handleInputChange}
         />
@@ -47,12 +100,13 @@ function App() {
           <button className="button" onClick={copyText}>
             Copy URL
           </button>
-          <button className="button" onClick={copyText}>
-            Detect Bias
+          <button className="button" onClick={submitVideo} disabled={isLoading}>
+            {isLoading ? "Loading..." : "Detect Bias"}
           </button>
         </section>
+        {error && <p className="error">{error}</p>}
+        <Footer />
       </div>
-      <Footer />
     </main>
   );
 }

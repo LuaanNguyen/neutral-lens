@@ -37,7 +37,7 @@ export default function Header({
           <Settings size={20} color="#7d7d7d" style={{ cursor: "pointer" }} />
         </div>
       </header>
-      {settingOpen ? <h1>Hello</h1> : <h1>Nah</h1>}
+      {settingOpen ? <></> : <></>}
     </>
   );
 }
