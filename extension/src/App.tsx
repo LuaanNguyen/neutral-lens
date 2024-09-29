@@ -36,6 +36,13 @@ function App() {
     fetchUrl();
   }, []);
 
+  const extractYouTubeCode = (url: string) => {
+    const regExp =
+      /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
+    const match = url.match(regExp);
+    return match && match[7].length === 11 ? match[7] : null;
+  };
+
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputUrl(event.target.value);
   };
@@ -44,14 +51,10 @@ function App() {
     navigator.clipboard.writeText(inputUrl);
   };
 
-  const isValidYoutubeUrl = (url: string) => {
-    const youtubeRegex =
-      /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/.+$/;
-    return youtubeRegex.test(url);
-  };
-
   const submitVideo = async () => {
-    if (!isValidYoutubeUrl(inputUrl)) {
+    const videoCode = extractYouTubeCode(inputUrl);
+
+    if (!videoCode) {
       setError("Please enter a valid YouTube URL");
       return;
     }
@@ -60,13 +63,11 @@ function App() {
     setError(null);
 
     try {
-      const res = await fetch(
-        `${BACKEND_URL}?url=${encodeURIComponent(inputUrl)}`
-      );
+      const res = await fetch(`${BACKEND_URL}/${videoCode}`);
       if (!res.ok) {
         throw new Error(`HTTP error! status: ${res.status}`);
       }
-      const data: ApiResponse = await res.json();
+      const data = await res.json();
       setInfo(data);
     } catch (err) {
       console.error("Error fetching data:", err);
@@ -87,7 +88,8 @@ function App() {
             <pre>{JSON.stringify(info, null, 2)}</pre>
           </div>
         )}
-        {isLoading ?? <Loader />}
+        {isLoading ? <Loader /> : <></>}
+        {error && <p className="error">{error}</p>}
         <p>Current URL:</p>
         <input
           type="text"
@@ -104,7 +106,7 @@ function App() {
             {isLoading ? "Loading..." : "Detect Bias"}
           </button>
         </section>
-        {error && <p className="error">{error}</p>}
+
         <Footer />
       </div>
     </main>

@@ -65,3 +65,8 @@ body {
   display: flex;
   justify-content: space-around;
 }
+
+.error {
+  color: #c7253e;
+  margin: 20px auto 20px auto;
+}
