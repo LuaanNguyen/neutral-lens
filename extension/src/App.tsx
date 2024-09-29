@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import { getCurrentTabUrl } from "./logic/getCurrentTabURL";
 import Footer from "./components/Footer";
 import Loader from "./components/Loader";
+import BiasGraph from "./components/BiasGraph";
 
 const BACKEND_URL = "http://127.0.0.1:5000/get-transcript-responses";
 
@@ -85,13 +86,13 @@ function App() {
         <Header settingOpen={settingOpen} setSettingOpen={setSettingOpen} />
         {info && (
           <div>
-            <h2>API Response:</h2>
-            <pre>{JSON.stringify(info, null, 2)}</pre>
+            <BiasGraph data={info} />
+            {/* <pre>{JSON.stringify(info, null, 2)}</pre> */}
           </div>
         )}
         {isLoading ? <Loader /> : <></>}
         {error && <p className="error">{error}</p>}
-        <p>Current URL:</p>
+        <p style={{ marginTop: "20px" }}>Current URL:</p>
         <input
           type="text"
           className="input"
