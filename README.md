@@ -1,5 +1,8 @@
 # Neutral Lens - See Beyond the Bias: Empower Your YouTube Experience 📹
 
+"Neutral-lens" is a browser extension that aims to reduce political bias in Youtube videos, particularly during election seasons and political debates. This tool analyzes news content, identifying biased language. By doing so, it helps viewers gain a more balanced perspective on political issues, encouraging critical thinking and allowing users to form their own opinions based on less skewed information. The extension's goal is to promote a more objective consumption of news media, especially crucial during times of heightened political discourse and electoral campaigns.
+
+
 ![Image](/extension/public/Neutral_Lens.png)
 
 ## How we build it 👷
